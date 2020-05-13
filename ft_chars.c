@@ -24,13 +24,23 @@ static	void	ft_sgestion(t_flags *flags, int lenght, int opt)
 	{
 		if (flags->width >= flags->precision && flags->precision >= lenght)
 			while (flags->width-- > lenght)
+			{
 				ft_write(' ', flags);
+
+			}
 		else if (flags->width >= flags->precision && flags->precision < lenght)
 			while (flags->width-- > flags->precision)
+			{
 				ft_write(' ', flags);
+				// write(1, "ok\n", 3);
+
+			}
 		else if (flags->width < flags->precision && flags->precision > lenght)
 			while (flags->width-- > lenght)
+			{
 				ft_write(' ', flags);
+
+			}
 	}
 }
 
@@ -86,9 +96,29 @@ void			ft_s(va_list *list_args, t_flags *flags)
 void			ft_c(va_list *list_args, t_flags *flags)
 {
 	ft_flags(list_args, flags);
+	if (flags->precision < 0)
+		flags->precision = 0;
 	if (flags->neg == 0)
 		ft_sgestion(flags, 1, 0);
 	ft_write(va_arg(*list_args, int), flags);
 	if (flags->neg == 1)
 		ft_sgestion(flags, 1, 0);
+}
+
+void 			ft_pourcent(va_list *list_args, t_flags *flags)
+{
+	ft_flags(list_args, flags);
+	// printf("[%d]", flags->width);
+	if (flags->precision < 0)
+		flags->precision = 0;
+	if (flags->neg == 0)
+	{
+		ft_sgestion(flags, 1, 0);
+	}
+	ft_write('%', flags);
+	if (flags->neg == 1)
+	{
+		ft_sgestion(flags, 1, 0);
+
+	}
 }
