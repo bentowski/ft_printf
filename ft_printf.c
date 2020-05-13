@@ -58,7 +58,7 @@ int		ft_choose(int i, const char *target, char *allindexs, t_flags *flags)
 			flags->neg = 1;
 		else if (target[x] == '.')
 			flags->cutter = 1;
-		else if (target[x] == '0')
+		else if (target[x] == '0' && flags->neg == 0 && flags->cutter == 0)
 			flags->zero = 1;
 		else if (flags->cutter == 1)
 			x = ft_constante(flags, target, x, 1);
