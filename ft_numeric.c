@@ -27,10 +27,10 @@ void	ft_di(va_list *list_args, t_flags *flags)
 	if (nb < 0)
 	{
 		if ((flags->precision > len || flags->precision + 1 == flags->width))
-				rest++;
+			rest++;
 		if (flags->precision >= len)
 			flags->width--;
-		if (nb < 0 && flags->neg == 0 && (flags->zero == 0 || flags->precision > 0))
+		if (flags->neg == 0 && (flags->zero == 0 || flags->precision > 0))
 			ft_width(flags, rest);
 		ft_write('-', flags);
 		flags->printed--;
@@ -100,6 +100,8 @@ void	ft_p(va_list *list_args, t_flags *flags)
 	flags->opt = 3;
 	nb = va_arg(*list_args, unsigned long int);
 	len = ft_nblenx(nb, 16);
+	if (flags->precision > 14)
+		flags->precision = 14;
 	if ((rest = ft_flagsaffin(flags, rest, len, nb)) < 0)
 		return ;
 	if (nb == 0)
