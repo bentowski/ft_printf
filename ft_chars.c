@@ -91,8 +91,8 @@ void			ft_s(va_list *list_args, t_flags *flags)
 void			ft_c(va_list *list_args, t_flags *flags)
 {
 	ft_flags(list_args, flags);
-	if (flags->precision < 0)
-		flags->precision = 0;
+	if (flags->precision <= 0)
+		flags->precision = 1;
 	if (flags->neg == 0)
 		ft_sgestion(flags, 1, 0);
 	ft_write(va_arg(*list_args, int), flags);
