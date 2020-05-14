@@ -99,7 +99,8 @@ void	ft_p(va_list *list_args, t_flags *flags)
 	ft_flags(list_args, flags);
 	flags->opt = 3;
 	nb = va_arg(*list_args, unsigned long int);
-	len = ft_nblenx(nb, 16);
+	len = ft_nblenx(nb, 16) + 4;
+	// printf("[%d]\n", len);
 	rest = ft_flagsaffin(flags, len, nb, 1);
 	if (nb == 0)
 	{
@@ -111,7 +112,6 @@ void	ft_p(va_list *list_args, t_flags *flags)
 	}
 	else
 	{
-		flags->width -= 4;
 		rest += 2;
 		flags->printed += 2;
 	}
