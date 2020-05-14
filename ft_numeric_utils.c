@@ -77,18 +77,22 @@ void	ft_ugestion(t_flags *flags, int rest, int len, unsigned long int nb)
 		ft_putunbr_fd(nb, 1);
 	else if (flags->opt == 3)
 	{
+		// if (nb == 0 && flags->cutter == 0)
+		// 	flags->precision = 2;
+		// else if (nb == 0)
+		// 	flags->precision = 0;
 		write(1, "0x", 2);
 		while (flags->precision-- > len)
+		{
 			ft_write('0', flags);
-		ft_candwrite(flags, nb, 32);
+		}
+		if (nb != 0 || (nb == 0 && flags->cutter == 0))
+			ft_candwrite(flags, nb, 32);
 	}
 	else
 		ft_candwrite(flags, nb, flags->opt);
 	if (flags->neg == 1)
 	{
-		if (flags->opt != 3)
-			if (nb == 0 && flags->cutter == 1 && flags->precision < -1)
-				ft_write('0', flags);
 		ft_width(flags, rest);
 	}
 }
