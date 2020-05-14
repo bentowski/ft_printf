@@ -111,7 +111,7 @@ void	ft_p(va_list *list_args, t_flags *flags)
 	}
 	else
 	{
-		flags->width -= 2;
+		flags->width -= 4;
 		rest += 2;
 		flags->printed += 2;
 	}
