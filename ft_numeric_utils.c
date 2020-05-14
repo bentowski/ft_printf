@@ -74,13 +74,8 @@ void	ft_ugestion(t_flags *flags, int rest, int len, unsigned long int nb)
 		ft_putunbr_fd(nb, 1);
 	else if (flags->opt == 3)
 	{
-		if (nb == 0)
-			write(1, "(nil)", 5);
-		else
-		{
 			write(1, "0x", 2);
 			ft_candwrite(flags, nb, 32);
-		}
 	}
 	else
 		ft_candwrite(flags, nb, flags->opt);
