@@ -112,8 +112,6 @@ void	ft_p(va_list *list_args, t_flags *flags)
 	flags->opt = 3;
 	nb = va_arg(*list_args, unsigned long int);
 	len = ft_nblenp(nb, 16) + 2;
-	if (flags->precision < len)
-		flags->precision = len;
 	if ((rest = ft_flagsaffin(flags, len, nb, 1)) < 0)
 		return ;
 	// printf("{%d, %d, %d, %d}\n", len, rest, flags->width, flags->precision);
