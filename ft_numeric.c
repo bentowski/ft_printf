@@ -114,9 +114,12 @@ void	ft_p(va_list *list_args, t_flags *flags)
 	len = ft_nblenp(nb, 16) + 2;
 	if ((rest = ft_flagsaffin(flags, len, nb, 1)) < 0)
 		return ;
-	// printf("{%d, %d, %d, %d}\n", len, rest, flags->width, flags->precision);
 	if (nb == 0)
+	{
+		if (flags->cutter == 1 && flags->precision == 0)
+			flags->width++;
 		flags->printed += 5;
+	}
 	else
 		flags->printed += 2;
 	ft_ugestion(flags, rest, len, nb);
