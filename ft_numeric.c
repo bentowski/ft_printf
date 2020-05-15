@@ -111,7 +111,6 @@ void	ft_p(va_list *list_args, t_flags *flags)
 	}
 	else
 	{
-		rest += 2;
 		flags->printed += 2;
 	}
 	ft_ugestion(flags, rest, len, nb);
