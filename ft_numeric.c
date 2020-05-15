@@ -100,14 +100,13 @@ void	ft_p(va_list *list_args, t_flags *flags)
 	flags->opt = 3;
 	nb = va_arg(*list_args, unsigned long int);
 	len = ft_nblenx(nb, 16) + 4;
-	// printf("[%d]\n", len);
-	rest = ft_flagsaffin(flags, len, nb, 1);
+	if ((rest = ft_flagsaffin(flags, len, nb, 0)) < 0)
+		return ;
 	if (nb == 0)
 	{
 		if (flags->cutter == 1)
 			flags->width++;
 		flags->width += 2;
-		rest += 4;
 		flags->printed += 5;
 	}
 	else
