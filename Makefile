@@ -10,29 +10,38 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME    	= libftprintf.a
+NAME    = libftprintf.a
+SRCS    =	ft_printf.c \
+					ft_numeric.c \
+					ft_numeric_utils.c \
+					ft_chars.c \
+					ft_general_utils.c \
+					libft/ft_strlen.c \
+					libft/ft_putchar_fd.c \
+					libft/ft_putnbr_fd.c
 
 SRCDIR    = ./
-
-SRCS    	=	$(addprefix $(SRCDIR), *.c libft/ft_putnbr_fd.c \
-							libft/ft_putchar_fd.c libft/ft_strlen.c)
-
-OBJ       = $(SRCS:.c=.o)
-
 CC        = gcc
+FLAGS    = -Wall -Wextra -Werror
+OBJ        = $(addprefix $(SRCDIR), $(SRCS:.c=.o))
 
-CFLAGS    = -Wall -Werror -Wextra
+$(SRCDIR)%.o:    $(SRCDIR)%.c
+	$(CC) $(FLAGS) -o $@ -c $<
+
+$(NAME):         $(OBJ)
+	ar rc $(NAME) $(OBJ)
 
 all:	$(NAME)
-
-$(NAME): $(OBJ) ft_printf.h
-	${CC} ${CFLAGS} -c ${SRCS}
-	ar rc ${NAME} ${OBJ}
 
 clean:
 	rm -f $(OBJ)
 
-fclean:	clean
+fclean:         clean
 	rm -f $(NAME)
 
-re:	fclean all
+re:             fclean all
+
+# test:	${NAME}
+# 	gcc ${NAME} main.c
+# 	./a.out
+.PHONY:            all clean fclean re
