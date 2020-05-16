@@ -69,7 +69,7 @@ void	ft_width(t_flags *flags, int rest)
 
 void	ft_ugestion(t_flags *flags, int rest, int len, unsigned long int nb)
 {
-	if (flags->neg == 0 && flags->opt != 3)
+	if (flags->neg == 0)
 		ft_width(flags, rest);
 	while (flags->precision-- > len && flags->opt != 3)
 		ft_write('0', flags);
@@ -78,8 +78,6 @@ void	ft_ugestion(t_flags *flags, int rest, int len, unsigned long int nb)
 	else if (flags->opt == 3)
 	{
 		write(1, "0x", 2);
-		if (flags->neg == 0)
-			ft_width(flags, rest);
 		while (flags->precision-- > 2)
 			ft_write('0', flags);
 		if (nb != 0 || (nb == 0 && flags->cutter == 0))
