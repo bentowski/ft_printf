@@ -78,7 +78,7 @@ void	ft_ugestion(t_flags *flags, int rest, int len, unsigned long int nb)
 	else if (flags->opt == 3)
 	{
 		write(1, "0x", 2);
-		while (flags->precision-- > 2)
+		while (flags->precision-- >= len - 2)
 			ft_write('0', flags);
 		if (nb != 0 || (nb == 0 && flags->cutter == 0))
 			ft_candwrite(flags, nb, 32);
