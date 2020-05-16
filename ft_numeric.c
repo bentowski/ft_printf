@@ -102,7 +102,7 @@ void	ft_p(va_list *list_args, t_flags *flags)
 	len = ft_nblenp(nb, 16) + 2;
 	if ((rest = ft_flagsaffin(flags, len, nb, 1)) < 0)
 		return ;
-	if (len == 3 && nb == 0)
+	if (len == 3 && nb == 0 && flags->precision != 0)
 		flags->precision++;
 	if (nb == 0)
 		if (flags->cutter == 1 && flags->precision == 0)
