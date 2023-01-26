@@ -16,3 +16,5 @@ For compile the project, you just need `make`, `gcc`
 `make fclean` > make clean and clean the library
 
 `make re` > make fclean and make
+
+2) Call the library in your program
