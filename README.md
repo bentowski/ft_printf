@@ -6,6 +6,9 @@ So you can find the ft_printf subjects in the root of the repo, and you can find
 For run the project, you just need 'make', 'gcc' and you just have to run the make commands :
 
 `make` > Just make the project
+
 `make clean` > Clean all objects files
+
 `make fclean` > make clean and clean the executable
+
 `make re` > make fclean and make
